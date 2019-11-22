@@ -1,0 +1,13 @@
+name: 'flake8 with args'
+description: 'Run flake8 and accept args'
+author: 'jonasrk'
+branding:
+  icon: check-circle
+  color: yellow
+inputs:
+  checkName:
+    description: 'Runs flake8 and accepts args.'
+    required: true
+runs:
+  using: 'python:3'
+  main: '"/entrypoint.sh"'
