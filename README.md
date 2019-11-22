@@ -4,14 +4,22 @@ A GitHub action that runs [flake8 code linter](https://github.com/PyCQA/flake8) 
 
 ## Example Workflow
 
-```workflow
-workflow "Example Workflow" {
-  on = "push"
-  resolves = ["Lint"]
-}
+A complete `.github/workflows/main.yml` could look like this 
 
-action "Lint" {
-  uses = "jonasrk/flake8-action@master"
-  args = "--max-line-length=100"
-}
+```yml
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+
+    runs-on: ubuntu-latest
+
+    steps:  
+    - uses: actions/checkout@v1
+    - name: Flake8 Code Linter
+      uses: jonasrk/flake8-action@master
+      with: 
+        args: "--max-line-length=100 --exclude .ipython --ignore E266,W503,E203,E722"
 ```
