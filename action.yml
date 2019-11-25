@@ -9,5 +9,5 @@ inputs:
     description: 'Runs flake8 and accepts args.'
     required: true
 runs:
-  using: 'python:3'
-  main: '"/entrypoint.sh"'
+  using: 'node12'
+  main: '/entrypoint.sh'
